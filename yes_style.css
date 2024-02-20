@@ -5,19 +5,41 @@ body {
     height: 100vh;
     background-color: #F8C8DC;
 }
-
+.yes_container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
 .header_text {
     font-family: 'Nunito';
-    font-size: 50px;
+    font-size: 60px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.header_text1 {
+    font-family: 'Nunito';
+    font-size: 60px;
     font-weight: bold;
     color: white;
     text-align: center;
+    margin-bottom: 20px;
     margin-top: 20px;
-    margin-bottom: 0px;
 }
 
 .gif_container {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.no_container{
+    width:500px;
+    height: 500px;
+    /* -webkit-box-shadow: inset 0px 0px 103px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 103px 0px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 103px 0px rgba(0,0,0,0.75) */
 }

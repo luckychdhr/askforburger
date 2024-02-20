@@ -1,38 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="stylesheet" href="./styles.css">
-        
-    </head> 
-    <body>
-        <div class="container">
-            <div >
-                <h1 class = "header_text">Lets eat burger today?</h1>
-            </div>
+
+<head>
+    <link rel="stylesheet" href="./styles.css">
+
+</head>
+
+<body>
+    <div id="firstContainer" class="gif_container">
+        <span id="desktop_check" class="header_text">Madam, Please use dekstop/Laptop!</span>
+    </div>
+    <div id="secondContainer" class="container">
+        <div id="mainContainer1">
+            <h1 class="header_text">Lets eat burger today?</h1>
+        </div>
+        <div id="mainContainer2" class="gif_container">
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3lvMWF4OG8yc3p6Ymdvd3g2d245amdveDhyYmx6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif"
+                alt="Cute animated illustration">
+        </div>
+        <div id="waitVideo" class="gif_container" style="display: none;">
             <div class="gif_container">
-                <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3lvMWF4OG8yc3p6Ymdvd3g2d245amdveDhyYmx6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute animated illustration">
+                <video style="width: 600px; height: 600px;" autoplay loop src="/asset/wait.mp4"
+                    alt="Cute animated illustration">
             </div>
-            <div class = "buttons">
-                <button class="btn" id = "yesButton" onclick="nextPage()">No</button>
-                <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">Yes</button>
-                <script>
-                    function nextPage() {
-                        window.location.href = "yes.html";
-                    }
-                    let x=1
-                    function moveButton() {
-                        var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth) - 85;
-                        var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight) - 48;
-                        document.getElementById('noButton').style.left = `${x}px`;
-                        document.getElementById('noButton').style.top = `${y}px`;
-                        x++
-                        if(x==4){
-                            alert('Why so slow? Dont you wanna eat burger')
-                        }
-                    }
-                </script> 
+            </video>
+            <div class="gif_container">
+                <h1 class="header_text1">You Cracked IIT, please be fast&#128517;</h1>
             </div>
         </div>
-       
-    </body> 
+        <div id="mainContainer3" class="buttons">
+            <button class="btn" id="yesButton" onclick="noPage()">No</button>
+            <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">Yes</button>
+            <script>
+                let screenWidth = window.screen.width;
+                let isMobile = screenWidth <= 480;
+
+                let details = navigator.userAgent;
+
+                let regexp = /android|iphone|kindle|ipad/i;
+
+                let isMobileDevice = regexp.test(details);
+
+                if (isMobileDevice && isMobile) {
+                    document.getElementById('secondContainer').style.display = 'none'
+                    document.getElementById('firstContainer').style.display = 'block'
+                } else if (isMobile) {
+                    document.getElementById('secondContainer').style.display = 'none'
+                    document.getElementById('firstContainer').style.display = 'block'
+                    alert("Don't try to be oversmart, madam! Laptop means laptop.");
+                } else {
+                    document.getElementById('firstContainer').style.display = 'none'
+                    document.getElementById('secondContainer').style.display = 'block'
+                }
+                function yesPage() {
+                    window.location.href = "yes.html";
+                }
+                function noPage() {
+                    window.location.href = "no.html";
+                }
+                let count = 1
+                function moveButton() {
+                    var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth) - 85;
+                    var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight) - 48;
+                    document.getElementById('noButton').style.left = `${x}px`;
+                    document.getElementById('noButton').style.top = `${y}px`;
+                    count++
+                    if (count == 5) {
+                        document.getElementById('mainContainer1').style.display = 'none'
+                        document.getElementById('mainContainer2').style.display = 'none'
+                        document.getElementById('mainContainer3').style.display = 'none'
+                        document.getElementById('waitVideo').style.display = 'block'
+                        setTimeout(() => {
+                            document.getElementById('mainContainer1').style.display = 'block'
+                            document.getElementById('mainContainer2').style.display = 'block'
+                            document.getElementById('mainContainer3').style.display = 'block'
+                            document.getElementById('waitVideo').style.display = 'none'
+                        }, 5000)
+                    }
+                    if (count == 10) {
+                        yesPage()
+                    }
+                }
+            </script>
+        </div>
+    </div>
+
+</body>
+
 </html>
