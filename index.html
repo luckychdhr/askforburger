@@ -32,26 +32,26 @@
             <button class="btn" id="yesButton" onclick="noPage()">No</button>
             <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">Yes</button>
             <script>
-                let screenWidth = window.screen.width;
-                let isMobile = screenWidth <= 480;
+                // let screenWidth = window.screen.width;
+                // let isMobile = screenWidth <= 480;
 
-                let details = navigator.userAgent;
+                // let details = navigator.userAgent;
 
-                let regexp = /android|iphone|kindle|ipad/i;
+                // let regexp = /android|iphone|kindle|ipad/i;
 
-                let isMobileDevice = regexp.test(details);
+                // let isMobileDevice = regexp.test(details);
 
-                if (isMobileDevice && isMobile) {
-                    document.getElementById('secondContainer').style.display = 'none'
-                    document.getElementById('firstContainer').style.display = 'block'
-                } else if (isMobile) {
-                    document.getElementById('secondContainer').style.display = 'none'
-                    document.getElementById('firstContainer').style.display = 'block'
-                    alert("Don't try to be oversmart, madam! Laptop means laptop.");
-                } else {
-                    document.getElementById('firstContainer').style.display = 'none'
-                    document.getElementById('secondContainer').style.display = 'block'
-                }
+                // if (isMobileDevice && isMobile) {
+                //     document.getElementById('secondContainer').style.display = 'none'
+                //     document.getElementById('firstContainer').style.display = 'block'
+                // } else if (isMobile) {
+                //     document.getElementById('secondContainer').style.display = 'none'
+                //     document.getElementById('firstContainer').style.display = 'block'
+                //     alert("Don't try to be oversmart, madam! Laptop means laptop.");
+                // } else {
+                //     document.getElementById('firstContainer').style.display = 'none'
+                //     document.getElementById('secondContainer').style.display = 'block'
+                // }
                 function yesPage() {
                     window.location.href = "yes.html";
                 }
