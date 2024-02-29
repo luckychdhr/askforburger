@@ -10,28 +10,28 @@
     <div id="firstContainer" class="gif_container">
         <span id="desktop_check" class="header_text">Madam, Please use dekstop/Laptop!</span>
     </div>
-    <div id="secondContainer" class="container">
+    <div id="secondContainer" class="container" style="position: relative; width: 100%; height: 100%;">
         <div id="mainContainer1">
-            <h1 class="header_text">Lets eat burger today?</h1>
+            <!-- <h1 class="header_text">Lets go out today?</h1> -->
+        </div>
+        <div id="bikeanimation" class="bikeContainer" onmouseover="speedUpBike()" onmouseleave="slowUpBike()">
+            <video autoplay loop playsinline muted class="bikeImage" alt="Cute animated illustration">
+                <source src="./assest/bike2.mp4" type="video/mp4">
+            </video>
+            <!-- <img class="bikeImage" src="./assest/bike.gif" alt="Cute animated illustration"> -->
+            <!-- <button class="btn" id="yesButton" >No</button> -->
         </div>
         <div id="mainContainer2" class="gif_container">
-            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3lvMWF4OG8yc3p6Ymdvd3g2d245amdveDhyYmx6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif"
-                alt="Cute animated illustration">
-        </div>
-        <div id="waitVideo" class="gif_container" style="display: none;">
-            <div class="gif_container">
-                <video autoplay loop playsinline muted style="width: 600px; height: 600px;" alt="Cute animated illustration">
-<source src="./assest/wait.mp4" type="video/mp4">
-</video>
-            </div>
-            </video>
-            <div class="gif_container">
-                <h1 class="header_text1">You Cracked IIT, please be fast&#128517;</h1>
-            </div>
+            <!-- <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3lvMWF4OG8yc3p6Ymdvd3g2d245amdveDhyYmx6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif"
+                alt="Cute animated illustration"> -->
         </div>
         <div id="mainContainer3" class="buttons">
-            <button class="btn" id="yesButton" onclick="noPage()">No</button>
-            <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">Yes</button>
+            <button class="btn" id="noButton" onclick="moveButton()">sss</button>
+            <video autoplay loop playsinline muted id="noTaskID" class="noTask" alt="Cute animated illustration"
+                onmouseover="zoominvideo()" onmouseleave="zoomoutvideo()">
+                <source src="./assest/bilkulrisk.mp4" type="video/mp4">
+            </video>
+            <!-- <button class="btn" id="yesButton" onmouseover="moveButton()" >No</button> -->
             <script>
                 let screenWidth = window.screen.width;
                 let isMobile = screenWidth <= 480;
@@ -59,7 +59,25 @@
                 function noPage() {
                     window.location.href = "no.html";
                 }
+                function zoominvideo() {
+                    document.getElementById('noTaskID').style.width = '300px'
+                    document.getElementById('noTaskID').style.height = '100px'
+                }
+                function zoomoutvideo() {
+                    document.getElementById('noTaskID').style.width = '100px'
+                    document.getElementById('noTaskID').style.height = '60px'
+                }
                 let count = 1
+                let animationCount = 9
+                function speedUpBike() {
+                    if (animationCount) {
+                        document.getElementById('bikeanimation').style.webkitAnimationDuration = `${animationCount}s`
+                        animationCount -= 3
+                    }
+                    if (animationCount <= 5) {
+                        document.getElementById('bikeanimation').style.transform = 'rotate(40deg)'
+                    }
+                }
                 function moveButton() {
                     var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth) - 85;
                     var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight) - 48;
